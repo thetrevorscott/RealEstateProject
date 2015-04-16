@@ -1,0 +1,157 @@
+﻿@model IEnumerable<FiveTalent.Models.Listing>
+
+@{
+    ViewBag.Title = "Listings";
+}
+
+<h2>Listings</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="listing">
+    @foreach (var item in Model)
+    {
+        int j = 0;
+        for (int i = 0; i < item.Images.Count(); i += 3)
+        {
+            j = i;
+        <tr>
+            @while (j < i + 3 && j < item.Images.Count())
+            {
+                <td colspan="2">
+                    <img src="data:image/png;base64,@Convert.ToBase64String(item.Images[j].ImageData, 0, item.Images[j].ImageData.Length)" width="200" />
+                </td>
+                j++;
+            }
+        </tr>    
+        }
+        <tr>
+            <th>MLS#
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.ListingId)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Street1)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.Street1)
+            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.Neighborhood)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.Neighborhood)
+            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.GarageSize)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.GarageSize)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Street2)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.Street2)
+            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.SalesPrice)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.SalesPrice)
+            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.SquareFeet)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.SquareFeet)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.City)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.DateListed)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateListed, "ShortDateTime")
+            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.LotSize)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.LotSize)
+            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.IsAcres)
+            </th>
+            <td style="width: 13px;">
+                @Html.DisplayFor(modelItem => item.IsAcres)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.State)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.State)
+            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.Bedrooms)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bedrooms)
+            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Zipcode)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.Zipcode)
+            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.FullBathrooms)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullBathrooms)
+            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.PartialBathrooms)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.PartialBathrooms)
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                @Html.ActionLink("Edit", "Edit", new { id = item.ListingId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ListingId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ListingId })
+            </td>
+            <th></th>
+        </tr>
+        <tr>
+            <td colspan="8">
+                <hr />
+            </td>
+        </tr>
+    }
+
+</table>

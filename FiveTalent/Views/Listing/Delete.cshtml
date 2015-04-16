@@ -1,0 +1,130 @@
+﻿@model FiveTalent.Models.Listing
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Listing</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Street1)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Street1)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Street2)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Street2)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.City)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.City)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.State)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.State)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Zipcode)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Zipcode)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Neighborhood)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Neighborhood)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SalesPrice)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SalesPrice)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DateListed)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DateListed)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Bedrooms)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Bedrooms)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FullBathrooms)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FullBathrooms)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PartialBathrooms)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PartialBathrooms)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.GarageSize)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.GarageSize)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SquareFeet)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SquareFeet)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LotSize)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LotSize)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.IsAcres)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IsAcres)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Description)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

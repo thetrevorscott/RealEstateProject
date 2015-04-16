@@ -1,0 +1,19 @@
+﻿@using (Html.BeginForm("Upload", "Image", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <table>
+        <tr>
+            <td>Listing MLS : @ViewBag.ListingID</td>
+            <td><input type="hidden" name="listingId" value="@ViewBag.ListingId" /></td>
+        </tr>
+        <tr>
+            <td>Select File : </td>
+            <td>
+                <input type="file" multiple="multiple" name="uploadFiles" id="uploadFiles" accept="image/*" />
+            </td>
+            <td>
+                <input type="submit" name="Upload" value="Upload" />
+            </td>
+        </tr>
+    </table>
+}
+

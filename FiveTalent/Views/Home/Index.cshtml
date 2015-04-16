@@ -1,0 +1,228 @@
+﻿@model FiveTalent.Models.ListingViewModel
+
+@{
+    ViewBag.Title = "Listing Search";
+}
+@section featured {
+    @using (Html.BeginForm("Search", "Home", FormMethod.Post)){
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Title.</h1>
+                <h2>@ViewBag.Message</h2>
+            </hgroup>
+            <table>
+                <tr>
+                    <td>
+                        @Html.LabelFor(model => model.ListingSearchFilter.MLS)
+                    </td>
+                    <td>
+                        @Html.EditorFor(model => model.ListingSearchFilter.MLS)
+                        @Html.ValidationMessageFor(model => model.ListingSearchFilter.MLS)
+                    </td>
+                    <td>
+                        @Html.LabelFor(model => model.ListingSearchFilter.Bedrooms)
+                    </td>
+                    <td>
+                        @Html.EditorFor(model => model.ListingSearchFilter.Bedrooms)
+                        @Html.ValidationMessageFor(model => model.ListingSearchFilter.Bedrooms)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.LabelFor(model => model.ListingSearchFilter.City)
+                    </td>
+                    <td>
+                        @Html.EditorFor(model => model.ListingSearchFilter.City)
+                        @Html.ValidationMessageFor(model => model.ListingSearchFilter.City)
+                    </td>
+                    <td>
+                        @Html.LabelFor(model => model.ListingSearchFilter.FullBathrooms)
+                    </td>
+                    <td>
+                        @Html.EditorFor(model => model.ListingSearchFilter.FullBathrooms)
+                        @Html.ValidationMessageFor(model => model.ListingSearchFilter.FullBathrooms)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.LabelFor(model => model.ListingSearchFilter.State)
+                    </td>
+                    <td>
+                        @Html.EditorFor(model => model.ListingSearchFilter.State)
+                        @Html.ValidationMessageFor(model => model.ListingSearchFilter.State)
+                    </td>
+                    <td>
+                        @Html.LabelFor(model => model.ListingSearchFilter.PartialBathrooms)
+                    </td>
+                    <td>
+                        @Html.EditorFor(model => model.ListingSearchFilter.PartialBathrooms)
+                        @Html.ValidationMessageFor(model => model.ListingSearchFilter.PartialBathrooms)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.LabelFor(model => model.ListingSearchFilter.Zipcode)
+                    </td>
+                    <td>
+                        @Html.EditorFor(model => model.ListingSearchFilter.Zipcode)
+                        @Html.ValidationMessageFor(model => model.ListingSearchFilter.Zipcode)
+                    </td>
+                    <td>
+                        @Html.LabelFor(model => model.ListingSearchFilter.SquareFeet)
+                    </td>
+                    <td>
+                        @Html.EditorFor(model => model.ListingSearchFilter.SquareFeet)
+                        @Html.ValidationMessageFor(model => model.ListingSearchFilter.SquareFeet)
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3"></td>
+                    <td style="float: right; font-size: large; text-align: center; text-decoration: none;">
+                        <input type="submit" name="Search" value="Search" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </section>
+    }
+}
+<h3>Listing Results:</h3>
+<table class="listing">
+    @foreach (var item in Model.Listings)
+    {
+        int j = 0;
+        for (int i = 0; i < item.Images.Count(); i += 3)
+        {
+            j = i;
+        <tr>
+            @while (j < i + 3 && j < item.Images.Count())
+            {
+                <td colspan="2">
+                    <img src="data:image/png;base64,@Convert.ToBase64String(item.Images[j].ImageData, 0, item.Images[j].ImageData.Length)" width="200" />
+                </td>
+                j++;
+            }
+        </tr>    
+        }
+        <tr>
+            <th>MLS#
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.ListingId)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => item.Street1)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.Street1)
+            </td>
+            <th>
+                @Html.DisplayNameFor(model => item.Neighborhood)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.Neighborhood)
+            </td>
+            <th>
+                @Html.DisplayNameFor(model => item.GarageSize)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.GarageSize)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => item.Street2)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.Street2)
+            </td>
+            <th>
+                @Html.DisplayNameFor(model => item.SalesPrice)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.SalesPrice)
+            </td>
+            <th>
+                @Html.DisplayNameFor(model => item.SquareFeet)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.SquareFeet)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => item.City)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <th>
+                @Html.DisplayNameFor(model => item.DateListed)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateListed, "ShortDateTime")
+            </td>
+            <th>
+                @Html.DisplayNameFor(model => item.LotSize)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.LotSize)
+            </td>
+            <th>
+                @Html.DisplayNameFor(model => item.IsAcres)
+            </th>
+            <td style="width: 13px;">
+                @Html.DisplayFor(modelItem => item.IsAcres)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => item.State)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.State)
+            </td>
+            <th>
+                @Html.DisplayNameFor(model => item.Bedrooms)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bedrooms)
+            </td>
+            <th>
+                @Html.DisplayNameFor(model => item.Description)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => item.Zipcode)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.Zipcode)
+            </td>
+            <th>
+                @Html.DisplayNameFor(model => item.FullBathrooms)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullBathrooms)
+            </td>
+            <th>
+                @Html.DisplayNameFor(model => item.PartialBathrooms)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.PartialBathrooms)
+            </td>
+        </tr>
+        <tr>
+            <td colspan="8">
+                <hr />
+            </td>
+        </tr>
+    }
+
+</table>

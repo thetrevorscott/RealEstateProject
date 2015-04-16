@@ -1,0 +1,64 @@
+﻿@model FiveTalent.Models.ListingSearchFilter
+
+@using (Html.BeginForm("Search", "Listing", FormMethod.Post))
+{
+<table>
+    <tr>
+        <td>
+            @Html.LabelFor(model => model.MLS)
+        </td>
+        <td>
+            @Html.EditorFor(model => model.MLS)
+            @Html.ValidationMessageFor(model => model.MLS)
+        </td>
+        <td>
+            @Html.LabelFor(model => model.Bedrooms)
+        </td>
+        <td>
+            @Html.EditorFor(model => model.Bedrooms)
+            @Html.ValidationMessageFor(model => model.Bedrooms)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(model => model.City)
+        </td>
+        <td>
+            @Html.EditorFor(model => model.City)
+            @Html.ValidationMessageFor(model => model.City)
+        </td>
+        <td>
+            @Html.LabelFor(model => model.Bathrooms)
+        </td>
+        <td>
+            @Html.EditorFor(model => model.Bathrooms)
+            @Html.ValidationMessageFor(model => model.Bathrooms)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(model => model.State)
+        </td>
+        <td>
+            @Html.EditorFor(model => model.State)
+            @Html.ValidationMessageFor(model => model.State)
+        </td>
+        <td>
+            @Html.LabelFor(model => model.SquareFeet)
+        </td>
+        <td>
+            @Html.EditorFor(model => model.SquareFeet)
+            @Html.ValidationMessageFor(model => model.SquareFeet)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(model => model.Zipcode)
+        </td>
+        <td>
+            @Html.EditorFor(model => model.Zipcode)
+            @Html.ValidationMessageFor(model => model.Zipcode)
+        </td>
+    </tr>
+</table>
+}
